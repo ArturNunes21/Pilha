@@ -1,81 +1,14 @@
 #include <iostream>
+#include "pilha.hpp"
 
-using namespace std;
+int main(){
 
-class pilha{
-    private:
-    int tamanho,topo, *vetor;
+    Pilha p1(5);
 
-    public:
-    pilha(int);
-    ~pilha();
-    bool pilhaVazia()const;
-    bool pilhaCheia()const;
-    void empilhar(int);
-    int desempilhar();
-    int accesar()const;
-};
-
-    pilha::pilha(int tamanho):
-        tamanho(0),
-        topo(-1),
-        vetor(0)
-    {
-        if(tamanho<=0)
-            throw string("tamanho invalido");
-        try{
-            vetor = new int[tamanho];
-            this->tamanho = tamanho;
-        }catch(std::bad_alloc){
-            throw string("nao foi possivel alocar memoria");
-        }
+    for(int i = 0; i<5; i++){
+        p1.empilhar(i*10%2);
+        cout << "Empilhando valor = " << p1.acessar() << endl;
     }
 
-    pilha::~pilha(){
-        if(vetor)
-            delete[] vetor;
-       topo == -1
-    }
-
-    bool pilha::pilhaVazia()const{
-        return (topo == -1);
-    }
-
-    bool pilha::pilhaCheia()const{
-        return (topo == tamanho-1);
-    }
-
-    void pilha::empilhar(int valor){
-        if (pilhaCheia()){
-            throw string("Pilha ja estacheia.");
-        }
-        topo++;
-        vetor[topo] = valor;
-    }
-
-    int pilha::desempilhar(){
-        if (pilhaVazia()){
-            throw string("Pilha ja vazia.");
-        }
-        return vetor[topo--];
-    }
-
-    int pilha::accesar()const{
-        if (pilhaVazia()){
-            throw string("Pilha ja vazia.");
-        }
-        return vetor[topo];
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return 0;
+}
