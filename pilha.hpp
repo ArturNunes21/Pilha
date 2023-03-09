@@ -2,6 +2,7 @@
 #define PILHA_H
 
 #include <iostream>
+#include <string>
 
 class Pilha{
     private:

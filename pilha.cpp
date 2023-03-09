@@ -7,19 +7,19 @@ Pilha::Pilha(int tamanho):
         vetor(0)
     {
         if(tamanho<=0)
-            throw string("tamanho invalido");
+            throw std::string("tamanho invalido");
         try{
             vetor = new int[tamanho];
             this->tamanho = tamanho;
         }catch(std::bad_alloc){
-            throw string("nao foi possivel alocar memoria");
+            throw std::string("nao foi possivel alocar memoria");
         }
     }
 
     Pilha::~Pilha(){
         if(vetor)
             delete[] vetor;
-       topo == -1
+       topo == -1;
     }
 
     bool Pilha::pilhaVazia()const{
@@ -32,7 +32,7 @@ Pilha::Pilha(int tamanho):
 
     void Pilha::empilhar(int valor){
         if (pilhaCheia()){
-            throw string("Pilha ja estacheia.");
+            throw std::string("Pilha ja estacheia.");
         }
         topo++;
         vetor[topo] = valor;
@@ -40,14 +40,14 @@ Pilha::Pilha(int tamanho):
 
     int Pilha::desempilhar(){
         if (pilhaVazia()){
-            throw string("Pilha ja vazia.");
+            throw std::string("Pilha ja vazia.");
         }
         return vetor[topo--];
     }
 
     int Pilha::accesar()const{
         if (pilhaVazia()){
-            throw string("Pilha ja vazia.");
+            throw std::string("Pilha ja vazia.");
         }
         return vetor[topo];
     }
