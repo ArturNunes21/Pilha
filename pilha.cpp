@@ -42,7 +42,8 @@ Pilha::Pilha(int tamanho):
         if (pilhaVazia()){
             throw std::string("Pilha ja vazia.");
         }
-        return vetor[topo--];
+        topo--;
+        return vetor[++topo];
     }
 
     int Pilha::accesar()const{
@@ -51,3 +52,21 @@ Pilha::Pilha(int tamanho):
         }
         return vetor[topo];
     }
+
+    void Pilha::setBinario(int valor){
+        int  aux = -1, var, restoFinal, res, tamanho;
+        
+        res = valor;
+        var = valor;
+
+        while(res !=1){
+            res = res/2;
+            tamanho++;
+        }
+
+        while(aux != 0){
+            empilhar(var%2);
+            aux = var/2;
+            var = var/2;
+        }
+      }

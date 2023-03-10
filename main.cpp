@@ -3,21 +3,21 @@
 
 int main(){
 
-    int aux;
+    int aux, valor;
 
-    Pilha p1(5);
+    Pilha p1(50);
 
-    for(int i = 0; i<5; i++){
-        p1.empilhar(i+1);
-        std::cout << "Empilhando valor = " << p1.accesar() << std::endl;
-    }
+    std::cout << "Insira um valor na base 10 para ser convertido = ";
+    std::cin >> valor;
+  
+    p1.setBinario(valor);
 
-    std::cout << "Desempilhando...\n";
-
-    while(!p1.pilhaVazia()){
-       aux = p1.desempilhar();
-       std::cout << "Valor desempilhado = " << aux << std::endl;
-    }
+    std::cout << "O valor em binario é = ";
+  // eu vou colocar uma negação na linha de baixo.
+    while(p1.pilhaVazia())
+      {
+        std::cout << p1.desempilhar() << std::endl;
+      }
 
     return 0;
 }

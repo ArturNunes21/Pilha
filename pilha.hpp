@@ -16,6 +16,7 @@ class Pilha{
     void empilhar(int);
     int desempilhar();
     int accesar()const;
+    void setBinario(int);
 }; 
 
 #endif
